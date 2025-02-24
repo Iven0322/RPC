@@ -9,7 +9,7 @@ import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.http.HttpServerRequest;
-import jdk.internal.misc.ThreadTracker;
+
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -35,9 +35,9 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
             }
 
             //构造响应结果对象
-            RpcResponse rpcResponse =new RpcResponse();
+             RpcResponse rpcResponse =new RpcResponse();
             //如果请求为null，直接返回
-            if(rpcRequest!=null){
+            if(rpcRequest == null){
                 rpcResponse.setMessage("Request is null!");
                 doResponse(request,rpcResponse,serializer);
                 return;
@@ -48,7 +48,7 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
                 Class<?> implClass = LocalRegistry.get(rpcRequest.getServiceName());
                 //通过反射调用服务类的方法
                 //使用Method类中的getMethod方法，找到implClass服务实现类中需要使用的方法名和参数类型列表
-                Method method = implClass.getMethod(rpcRequest.getServiceName(),rpcRequest.getParameterTypes());
+                Method method = implClass.getMethod(rpcRequest.getMethodName(),rpcRequest.getParameterTypes());
                 Object result = method.invoke(implClass.newInstance(),rpcRequest.getArgs());
                 //封装返回结果
                 rpcResponse.setData(result);

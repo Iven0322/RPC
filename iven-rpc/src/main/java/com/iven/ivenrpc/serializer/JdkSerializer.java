@@ -6,23 +6,23 @@ public class JdkSerializer implements Serializer{
     //序列化
     @Override
     public <T> byte[] serialize(T obj) throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(obj);
-        oos.close();
-        return baos.toByteArray();
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+        objectOutputStream.writeObject(obj);
+        objectOutputStream.close();
+        return outputStream.toByteArray();
     }
     //反序列化
     @Override
-    public <T> T deserialize(byte[] data, Class<T> clazz) throws IOException {
-        ByteArrayInputStream bais = new ByteArrayInputStream(data);
-        ObjectInputStream ois = new ObjectInputStream(bais);
+    public <T> T deserialize(byte[] bytes, Class<T> type) throws IOException {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(bytes);
+        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
         try{
-            return (T)ois.readObject();
+            return (T)objectInputStream.readObject();
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }finally {
-            ois.close();
+            objectInputStream.close();
         }
     }
 }
