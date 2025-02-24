@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/RPC-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/RPC-provider/pom.xml" />
         <option value="$PROJECT_DIR$/iven-rpc/pom.xml" />
+        <option value="$PROJECT_DIR$/iven-rpc-core/pom.xml" />
       </list>
     </option>
   </component>
