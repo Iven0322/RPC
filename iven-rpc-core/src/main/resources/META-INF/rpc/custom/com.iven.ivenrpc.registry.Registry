@@ -1,0 +1,1 @@
+etcd=com.iven.ivenrpc.registry.EtcdRegistry

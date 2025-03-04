@@ -1,0 +1,2 @@
+jdk = com.iven.ivenrpc.serializer.JdkSerializer
+json = com.iven.ivenrpc.serializer.JasonSerializer

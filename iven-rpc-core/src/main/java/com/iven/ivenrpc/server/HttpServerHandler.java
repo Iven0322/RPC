@@ -1,10 +1,12 @@
 package com.iven.ivenrpc.server;
 
+import com.iven.ivenrpc.RpcApplication;
 import com.iven.ivenrpc.model.RpcRequest;
 import com.iven.ivenrpc.model.RpcResponse;
 import com.iven.ivenrpc.registry.LocalRegistry;
 import com.iven.ivenrpc.serializer.JdkSerializer;
 import com.iven.ivenrpc.serializer.Serializer;
+import com.iven.ivenrpc.serializer.SerializerFactory;
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpServerResponse;
@@ -18,7 +20,7 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
     @Override
     public void handle(HttpServerRequest request) {
         //指定序列化器
-        final Serializer serializer = new JdkSerializer();
+        final Serializer serializer = SerializerFactory.getInstance(RpcApplication.getRpcConfig().getSerializer());
         //记录日志
         System.out.println("Received request: " + request.method()+" "+ request.uri());
 
