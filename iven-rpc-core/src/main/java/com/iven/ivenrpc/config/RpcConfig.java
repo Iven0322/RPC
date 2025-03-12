@@ -1,6 +1,7 @@
 package com.iven.ivenrpc.config;
 
 import com.iven.ivenrpc.fault.retry.RetryStrategyKeys;
+import com.iven.ivenrpc.fault.tolerant.TolerantStrategyKeys;
 import com.iven.ivenrpc.loadbalancer.LoadBalancerKeys;
 import com.iven.ivenrpc.serializer.SerializerKeys;
 import lombok.Data;
@@ -31,4 +32,7 @@ public class RpcConfig {
 
     //重试策略
     private String retryStrategy = RetryStrategyKeys.NO;
+
+    //容错机制
+    private String tolerantStrategy = TolerantStrategyKeys.FAIL_FAST;
 }

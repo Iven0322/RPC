@@ -1,0 +1,2 @@
+failFast=com.iven.ivenpc.fault.tolerant.FailFastTolerantStrategy
+failSafe=com.iven.ivenpc.fault.tolerant.FailSafeTolerantStrategy
