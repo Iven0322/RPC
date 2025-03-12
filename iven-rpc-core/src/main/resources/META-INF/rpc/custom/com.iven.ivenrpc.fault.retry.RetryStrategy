@@ -1,0 +1,2 @@
+no=com.iven.ivenrpc.fault.retry.NoRetryStrategy
+fixedInterval=com.iven.ivenrpc.fault.retry.FixedIntervalRetryStrategy

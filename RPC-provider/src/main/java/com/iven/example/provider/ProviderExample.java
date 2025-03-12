@@ -11,6 +11,7 @@ import com.iven.ivenrpc.registry.Registry;
 import com.iven.ivenrpc.registry.RegistryFactory;
 import com.iven.ivenrpc.server.HttpServer;
 import com.iven.ivenrpc.server.VertexHttpServer;
+import com.iven.ivenrpc.server.tcp.VertxTcpServer;
 
 public class  ProviderExample {
 
@@ -37,7 +38,10 @@ public class  ProviderExample {
         }
 
         // 启动 web 服务
-        HttpServer httpServer = new VertexHttpServer();
-        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+//        HttpServer httpServer = new VertexHttpServer();
+//        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+        //启动TCP服务器
+        VertxTcpServer  vertxTcpServer = new VertxTcpServer();
+        vertxTcpServer.doStart(8081);
     }
 }

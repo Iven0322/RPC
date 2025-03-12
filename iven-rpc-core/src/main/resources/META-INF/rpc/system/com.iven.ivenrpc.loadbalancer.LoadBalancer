@@ -1,0 +1,3 @@
+roundRobin=com.iven.ivenrpc.loadbalancer.RoundRobinLoadBalancer
+random=com.iven.ivenrpc.loadbalancer.RandomLoadBalancer
+consistentHash=com.iven.ivenrpc.loadbalancer.ConsistentHashLoadBalancer

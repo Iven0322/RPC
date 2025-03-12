@@ -1,5 +1,7 @@
 package com.iven.ivenrpc.config;
 
+import com.iven.ivenrpc.fault.retry.RetryStrategyKeys;
+import com.iven.ivenrpc.loadbalancer.LoadBalancerKeys;
 import com.iven.ivenrpc.serializer.SerializerKeys;
 import lombok.Data;
 
@@ -23,4 +25,10 @@ public class RpcConfig {
 
     //注册中心配置
     private RegistryConfig registryConfig = new RegistryConfig();
+
+    //负载均衡器
+    private String loadBalancer = LoadBalancerKeys.CONSISTENT_HASH;
+
+    //重试策略
+    private String retryStrategy = RetryStrategyKeys.NO;
 }
